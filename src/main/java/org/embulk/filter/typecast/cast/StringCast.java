@@ -53,7 +53,7 @@ public class StringCast
     public static long asLong(String value) throws DataException
     {
         try {
-            return Long.parseLong(value);
+            return Long.parseLong(value.replace(",", ""));
         }
         catch (NumberFormatException ex) {
             throw new DataException(buildErrorMessage("long", value), ex);
@@ -63,7 +63,7 @@ public class StringCast
     public static double asDouble(String value) throws DataException
     {
         try {
-            return Double.parseDouble(value);
+            return Double.parseDouble(value.replace(",", ""));
         }
         catch (NumberFormatException ex) {
             throw new DataException(buildErrorMessage("double", value), ex);
